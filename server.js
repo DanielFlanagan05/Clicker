@@ -1,28 +1,23 @@
 const express = require('express');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const path = require('path');
+
+// Middleware
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+
+// In-memory storage for click count
+let clickCount = 0;
 
 // Serve index.html on root path
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-
-// Middleware
-app.use(express.static('public'));
-app.use(bodyParser.json());
-
-// In-memory storage for click count
-let clickCount = 0;
-
 // Routes
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
 app.get('/getClicks', (req, res) => {
     res.json({ clicks: clickCount });
 });
@@ -30,10 +25,6 @@ app.get('/getClicks', (req, res) => {
 app.get('/increment', (req, res) => {
     clickCount++;
     res.json({ clicks: clickCount });
-});
-
-app.get('/style.css', (req, res) => {
-    res.sendFile(__dirname + '/public/style.css', { headers: { 'Content-Type': 'text/css' } });
 });
 
 // Start server
