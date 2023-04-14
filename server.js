@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,13 +12,17 @@ app.get('/', (req, res) => {
 
 
 // Middleware
-app.use(express.static(__dirname));
+app.use(express.static('public'));
 app.use(bodyParser.json());
 
 // In-memory storage for click count
 let clickCount = 0;
 
 // Routes
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.get('/getClicks', (req, res) => {
     res.json({ clicks: clickCount });
 });
