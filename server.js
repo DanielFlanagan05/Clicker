@@ -1,20 +1,19 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname)));
+app.use(express.json());
 
 // In-memory storage for click count
 let clickCount = 0;
 
 // Serve index.html on root path
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Routes
@@ -27,10 +26,10 @@ app.get('/increment', (req, res) => {
     res.json({ clicks: clickCount });
 });
 
-// Catch-all route"
+// Catch-all route
 app.use('*', (req, res) => {
     res.status(404).send('Resource not found');
-  });
+});
   
 // Start server
 app.listen(PORT, () => {
