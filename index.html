@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Click Counter</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .clicker-button {
+            background-color: blue;
+            color: black;
+        }
+    </style>
 </head>
 <body>
-    <button id="click-button">Click me!</button>
-    <p>Total clicks: <span id="click-count">0</span></p>
-    <script src="client.js"></script>
+    <h1>Click Counter</h1>
+    <button class="clicker-button" onclick="incrementCounter()">Click me!</button>
+    <p>Click count: <span id="clickCount">0</span></p>
+    
+    <script src="app.js"></script>
 </body>
 </html>
