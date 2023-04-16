@@ -27,6 +27,11 @@ app.get('/increment', (req, res) => {
     res.json({ clicks: clickCount });
 });
 
+// Catch-all route"
+app.use('*', (req, res) => {
+    res.status(404).send('Resource not found');
+  });
+  
 // Start server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
