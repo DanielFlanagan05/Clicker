@@ -4,16 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Click Counter</title>
-    <style>
-        .clicker-button {
-            background-color: blue;
-            color: black;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Click Counter</h1>
-    <button class="clicker-button" onclick="incrementCounter()">Click me!</button>
+    <button id="click-button" onclick="incrementCounter()">Click me!</button>
     <p>Click count: <span id="clickCount">0</span></p>
     
     <script src="app.js"></script>
