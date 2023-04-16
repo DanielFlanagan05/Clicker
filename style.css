@@ -22,6 +22,7 @@ body {
 
 /* Style the button */
 #click-button {
+  background-color: white;
   background-color: skyblue;
   color: black;
   border: 2px solid white;
