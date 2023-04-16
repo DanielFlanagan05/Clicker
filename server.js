@@ -36,5 +36,3 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
-// Expose the incrementCounter function to the global scope
-global.incrementCounter = incrementCounter;
