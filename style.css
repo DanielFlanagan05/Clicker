@@ -22,7 +22,8 @@ body {
   
   /* Style the button */
   #click-button {
-    background-color: white;
+    background-color: skyblue;
+    color: black;
     border: 2px solid white;
     cursor: pointer;
     transition: background-color 0.3s;
